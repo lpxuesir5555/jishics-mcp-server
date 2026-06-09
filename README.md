@@ -1,0 +1,145 @@
+﻿# 即时财税 MCP Server
+
+> 🚀 让 AI 助手（ChatGPT / Kimi / Claude / 豆包）能直接查询企业财税服务商
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Node.js](https://img.shields.io/badge/node-%3E%3D18-green.svg)](https://nodejs.org/)
+[![MCP](https://img.shields.io/badge/MCP-1.0-blue.svg)](https://modelcontextprotocol.io/)
+[![CI](https://github.com/jishics/jishics-mcp-server/actions/workflows/ci.yml/badge.svg)](https://github.com/jishics/jishics-mcp-server/actions/workflows/ci.yml)
+
+## 📖 目录
+
+- [什么是 MCP？](#什么是-mcp)
+- [功能](#功能)
+- [快速开始](#快速开始)
+- [本地开发](#本地开发)
+- [部署](#部署)
+- [数据安全](#数据安全)
+- [MCP 生态](#mcp-生态)
+- [关于即时财税](#关于即时财税)
+- [贡献](#贡献)
+- [License](#license)
+
+## 什么是 MCP？
+
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io/) 是让 AI 助手能访问外部数据和服务的开放协议。通过 MCP，用户可以在 ChatGPT、Kimi、Claude 等 AI 助手中直接找到即时财税的服务商信息。
+
+> **一句话：** 把你的企业服务数据变成 AI 能"看懂"的工具，用户用自然语言就能搜索、比价、下单。
+
+## 功能
+
+| Tool | 说明 | 示例 |
+|------|------|------|
+| `search_services` | 搜索服务商（按城市、服务类型） | "帮我找福州代理记账，小规模，200以内" |
+| `get_provider` | 获取服务商详情（资质、评分、成交量） | "这家有没有代理记账许可证？" |
+| `get_reviews` | 获取客户评价 | "看看这家评价怎么样" |
+| `create_demand` | 发布服务需求（进入撮合流程） | "选第一个，帮我发布需求" |
+| `track_order` | 查询订单/需求状态 | "我的需求有人接了吗？" |
+| `match_score` | 匹配度评分 | "对比这三家的综合评分" |
+| `verify_license` | 验证服务商资质 | "确认下资质是否在有效期内" |
+
+## 快速开始
+
+### 1. 在 AI 助手中配置 MCP
+
+**Claude Desktop / Cursor / Cherry Studio：**
+
+```json
+{
+  "mcpServers": {
+    "jishics": {
+      "url": "https://mcp.jishics.com/mcp/v1"
+    }
+  }
+}
+```
+
+### 2. 对 AI 说
+
+```
+帮我找个福州的代理记账服务商，小规模纳税人，预算200以内
+```
+
+AI 会自动调用 `search_services`，返回匹配的服务商列表。
+
+### 3. 继续对话
+
+```
+选第一个，帮我发布需求
+```
+
+AI 会调用 `create_demand`，在即时财税平台创建需求。
+
+## 本地开发
+
+```bash
+npm install     # 安装依赖
+npm run dev     # 开发模式（热重载）
+npm run build   # 构建
+npm start       # 启动生产模式
+```
+
+### 环境变量
+
+复制 `.env.example` 为 `.env` 并编辑：
+
+| 变量 | 说明 | 默认值 |
+|------|------|--------|
+| `JISHICS_API_URL` | 官网 API 地址 | `http://localhost:3000/api/v1` |
+| `MCP_PORT` | MCP Server 端口 | `3001` |
+| `MCP_API_KEYS` | API Key（逗号分隔） | 空（不认证） |
+| `LOG_LEVEL` | 日志级别 | `info` |
+
+### 运行测试
+
+```bash
+node test-functional.mjs   # 功能测试
+node test-mcp-sdk.mjs      # MCP SDK 测试
+```
+
+## 部署
+
+```bash
+# Docker（推荐）
+docker compose up -d
+
+# 直接运行
+npm start
+
+# systemd 服务
+# 详见 DEPLOY.md
+```
+
+详细部署说明见 [DEPLOY.md](./DEPLOY.md)
+
+## 数据安全
+
+| 数据类型 | MCP 可访问 | 说明 |
+|---------|-----------|------|
+| 服务商名称 | ✅ | 公开信息 |
+| 服务价格 | ✅ | 公开信息 |
+| 评分/评价 | ✅ | 公开信息 |
+| 客户联系方式 | ❌ | PII，永不返回 |
+| 财务数据 | ❌ | 内部数据 |
+
+## MCP 生态
+
+本项目已发布到以下 MCP 目录：
+
+- [mcp.so](https://mcp.so) — MCP Server 搜索引擎
+- [Glama.ai](https://glama.ai/mcp) — MCP Gateway & 目录
+- [PulseMCP](https://pulsemcp.com) — MCP Server 社区
+
+## 关于即时财税
+
+[即时财税（jishics.com）](https://www.jishics.com) 是企业财税服务竞价撮合平台，连接有财税需求的企业与专业服务商。
+
+## 贡献
+
+欢迎贡献！请参阅 [CONTRIBUTING.md](./CONTRIBUTING.md)
+
+安全漏洞请私密报告至 security@jishics.com，详见 [SECURITY.md](./SECURITY.md)
+
+## License
+
+MIT © [即时财税](https://www.jishics.com)
