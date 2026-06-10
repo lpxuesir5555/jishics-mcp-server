@@ -17,7 +17,7 @@ const serviceTypeDesc = `服务类型，可选值：${SERVICE_TYPES.join("、")}
 export function createMcpServer(): McpServer {
   const server = new McpServer({
     name: "jishics-mcp-server",
-    version: "1.2.0",
+    version: "1.2.1",
   });
 
   // ==================== Tools ====================

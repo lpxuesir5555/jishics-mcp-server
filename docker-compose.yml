@@ -1,15 +1,10 @@
-﻿version: "3.8"
+version: "3.8"
 services:
   mcp-server:
     build: .
     container_name: jishics-mcp
     ports:
       - "127.0.0.1:3001:3001"
-    environment:
-      - JISHICS_API_URL=http://host.docker.internal:3000/api/v1
-      - MCP_PORT=3001
-      - MCP_API_KEYS=${MCP_API_KEYS:-}
-      - LOG_LEVEL=info
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    env_file:
+      - .env
     restart: unless-stopped

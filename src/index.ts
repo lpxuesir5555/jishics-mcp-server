@@ -1,4 +1,4 @@
-﻿import express from "express";
+import express from "express";
 import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { createMcpServer } from "./server.js";
@@ -42,7 +42,7 @@ const HEARTBEAT_INTERVAL_MS = 30_000;
 
 // ==================== 健康检查（不需要认证）====================
 app.get("/health", (_req, res) => {
-  res.json({ status: "ok", name: "jishics-mcp-server", version: "1.2.0" });
+  res.json({ status: "ok", name: "jishics-mcp-server", version: "1.2.1" });
 });
 
 // ==================== 中间件：认证 ====================
@@ -176,7 +176,7 @@ app.post("/mcp/v1", async (req, res) => {
 
 // ==================== 启动服务器 ====================
 const server = app.listen(config.port, "0.0.0.0", () => {
-  logger.info(`MCP Server v1.2.0 listening on http://0.0.0.0:${config.port}`);
+  logger.info(`MCP Server v1.2.1 listening on http://0.0.0.0:${config.port}`);
   logger.info(`Streamable HTTP: http://0.0.0.0:${config.port}/mcp/v2`);
   logger.info(`SSE (compat):   http://0.0.0.0:${config.port}/mcp/v1`);
   logger.info(`API backend: ${config.apiUrl}`);
