@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D18-green.svg)](https://nodejs.org/)
 [![MCP](https://img.shields.io/badge/MCP-1.0-blue.svg)](https://modelcontextprotocol.io/)
-[![CI](https://github.com/jishics/jishics-mcp-server/actions/workflows/ci.yml/badge.svg)](https://github.com/jishics/jishics-mcp-server/actions/workflows/ci.yml)
+[![CI](https://github.com/lpxuesir5555/jishics-mcp-server/actions/workflows/ci.yml/badge.svg)](https://github.com/lpxuesir5555/jishics-mcp-server/actions/workflows/ci.yml)
 
 ## 📖 目录
 
@@ -33,7 +33,7 @@
 | `search_services` | 搜索服务商（按城市、服务类型） | "帮我找福州代理记账，小规模，200以内" |
 | `get_provider` | 获取服务商详情（资质、评分、成交量） | "这家有没有代理记账许可证？" |
 | `get_reviews` | 获取客户评价 | "看看这家评价怎么样" |
-| `create_demand` | 发布服务需求（进入撮合流程） | "选第一个，帮我发布需求" |
+| `create_demand` | 发布服务需求，支持 webhook 回调获取报价通知 | "选第一个，帮我发布需求" |
 | `track_order` | 查询订单/需求状态 | "我的需求有人接了吗？" |
 | `match_score` | 匹配度评分 | "对比这三家的综合评分" |
 | `verify_license` | 验证服务商资质 | "确认下资质是否在有效期内" |
@@ -89,6 +89,8 @@ npm start       # 启动生产模式
 | `MCP_PORT` | MCP Server 端口 | `3001` |
 | `MCP_API_KEYS` | API Key（逗号分隔） | 空（不认证） |
 | `LOG_LEVEL` | 日志级别 | `info` |
+| `INTERNAL_API_KEY` | 内部 API 密钥 | 空 |
+| `WEBHOOK_SECRET` | Webhook HMAC 签名密钥（与主服务共用） | 空 |
 
 ### 运行测试
 
@@ -143,3 +145,4 @@ npm start
 ## License
 
 MIT © [即时财税](https://www.jishics.com)
+
