@@ -1,12 +1,26 @@
-﻿# 即时财税 MCP Server
+# 即时财税 MCP Server — 企业财税服务 AI 智能体
 
-> 🚀 让 AI 助手直接搜索、比价、撮合财税服务商 — 7 个工具 + 2 个资源，已收录 mcp.so / Glama / awesome-mcp-servers
+> 🏆 已收录：mcp.so · Glama.ai · awesome-mcp-servers · Smithery.ai
+>
+> 🔗 MCP Endpoint: ``https://mcp.jishics.com/mcp/v2`` | 8 Tools + 2 Resources | MIT
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D18-green.svg)](https://nodejs.org/)
 [![MCP](https://img.shields.io/badge/MCP-1.0-blue.svg)](https://modelcontextprotocol.io/)
 [![Version](https://img.shields.io/badge/version-1.2.1-blue)](https://github.com/lpxuesir5555/jishics-mcp-server/releases)
+[![Glama Score](https://glama.ai/mcp/servers/lpxuesir5555/jishics-mcp-server/badges/score.svg)](https://glama.ai/mcp/servers/lpxuesir5555/jishics-mcp-server)
 [![CI](https://github.com/lpxuesir5555/jishics-mcp-server/actions/workflows/ci.yml/badge.svg)](https://github.com/lpxuesir5555/jishics-mcp-server/actions/workflows/ci.yml)
+## 🔌 Server Config
+
+```json
+{
+  "mcpServers": {
+    "jishics": {
+      "url": "https://mcp.jishics.com/mcp/v2"
+    }
+  }
+}
+```
 
 ## 📖 目录
 
@@ -45,7 +59,7 @@
 
 **Claude Desktop / Cursor / Cherry Studio：**
 
-```json
+````json
 {
   "mcpServers": {
     "jishics": {
@@ -53,7 +67,7 @@
     }
   }
 }
-```
+````
 
 ### 2. 对 AI 说
 
@@ -78,7 +92,7 @@ npm install     # 安装依赖
 npm run dev     # 开发模式（热重载）
 npm run build   # 构建
 npm start       # 启动生产模式
-```
+````
 
 ### 环境变量
 
@@ -98,7 +112,7 @@ npm start       # 启动生产模式
 ```bash
 node test-functional.mjs   # 功能测试
 node test-mcp-sdk.mjs      # MCP SDK 测试
-```
+````
 
 ## 部署
 
@@ -125,13 +139,18 @@ npm start
 | 客户联系方式 | ❌ | PII，永不返回 |
 | 财务数据 | ❌ | 内部数据 |
 
-## MCP 生态
+## 🌍 MCP 生态
 
-本项目已发布到以下 MCP 目录：
+本项目已发布到以下 MCP 目录和平台：
 
-- [mcp.so](https://mcp.so) — MCP Server 搜索引擎
-- [Glama.ai](https://glama.ai/mcp) — MCP Gateway & 目录
-- [PulseMCP](https://pulsemcp.com) — MCP Server 社区
+| 平台 | 类型 | 链接 |
+|------|------|------|
+| Glama.ai | 50K+ MCP 注册中心 | [查看](https://glama.ai/mcp/servers/lpxuesir5555/jishics-mcp-server) |
+| mcp.so | 22K+ MCP 搜索引擎 | [查看](https://mcp.so) |
+| awesome-mcp-servers | GitHub 精选列表 | [PR #7733](https://github.com/punkpeye/awesome-mcp-servers/pull/7733) |
+| Smithery.ai | MCP 托管 + 部署 | [查看](https://smithery.ai/servers/jishics/jishicsmcp) |
+| PulseMCP | MCP 社区 | [查看](https://pulsemcp.com) |
+| **腾讯云 MCP 广场** | 500+ MCP 市场 | 🔄 收录中 |
 
 
 ## 截图
