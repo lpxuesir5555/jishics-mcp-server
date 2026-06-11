@@ -1,10 +1,11 @@
 ﻿# 即时财税 MCP Server
 
-> 🚀 让 AI 助手（ChatGPT / Kimi / Claude / 豆包）能直接查询企业财税服务商
+> 🚀 让 AI 助手直接搜索、比价、撮合财税服务商 — 7 个工具 + 2 个资源，已收录 mcp.so / Glama / awesome-mcp-servers
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D18-green.svg)](https://nodejs.org/)
 [![MCP](https://img.shields.io/badge/MCP-1.0-blue.svg)](https://modelcontextprotocol.io/)
+[![Version](https://img.shields.io/badge/version-1.2.1-blue)](https://github.com/lpxuesir5555/jishics-mcp-server/releases)
 [![CI](https://github.com/lpxuesir5555/jishics-mcp-server/actions/workflows/ci.yml/badge.svg)](https://github.com/lpxuesir5555/jishics-mcp-server/actions/workflows/ci.yml)
 
 ## 📖 目录
@@ -48,7 +49,7 @@
 {
   "mcpServers": {
     "jishics": {
-      "url": "https://mcp.jishics.com/mcp/v1"
+      "url": "https://mcp.jishics.com/mcp/v2"
     }
   }
 }
@@ -132,6 +133,15 @@ npm start
 - [Glama.ai](https://glama.ai/mcp) — MCP Gateway & 目录
 - [PulseMCP](https://pulsemcp.com) — MCP Server 社区
 
+
+## 截图
+
+| AI 撮合页 | 服务商搜索 |
+|-----------|-----------|
+| ![AI 撮合](./docs/screenshot-ai-match.png) | ![搜索](./docs/screenshot-search.png) |
+
+> 截图位置：./docs/ 目录，尺寸 1440x900
+
 ## 关于即时财税
 
 [即时财税（jishics.com）](https://www.jishics.com) 是企业财税服务竞价撮合平台，连接有财税需求的企业与专业服务商。
@@ -145,4 +155,3 @@ npm start
 ## License
 
 MIT © [即时财税](https://www.jishics.com)
-
